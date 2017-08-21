@@ -1,0 +1,17 @@
+version: '2'
+services:
+  udacity-tensorflow:
+    build: .
+    image: lopezco/tensorflow-notebook
+    container_name: tensorflow-notebook
+    ports:
+      - "8899:8899"
+      - "8008:8008"
+    volumes:
+     - ./notebooks:/notebooks
+    environment:
+      JUPYTER_PASSWORD: "mypassword"
+      JUPYTER_PORT: 8899
+      TENSORBOARD_LOGDIR: ./logs
+      TENSORBOARD_PORT: 8008
+
